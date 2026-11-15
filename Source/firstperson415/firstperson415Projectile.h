@@ -8,6 +8,7 @@
 
 class USphereComponent;
 class UProjectileMovementComponent;
+class UNiagaraSystem;
 
 UCLASS(config=Game)
 class Afirstperson415Projectile : public AActor
@@ -37,6 +38,10 @@ class Afirstperson415Projectile : public AActor
 
 	UPROPERTY()
 		UMaterialInstanceDynamic* dmiMat;
+
+	// Niagara type variable to code with
+	UPROPERTY(EditAnywhere)
+		UNiagaraSystem* colorP;
 
 public:
 	Afirstperson415Projectile();
