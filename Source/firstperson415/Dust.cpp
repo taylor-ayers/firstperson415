@@ -39,9 +39,10 @@ void ADust::OnOverlapBegin(UPrimitiveComponent* OverlappedComp, AActor* OtherAct
 {
 	Afirstperson415Character* overlappedActor = Cast<Afirstperson415Character>(OtherActor);
 
+	randColor = FLinearColor(UKismetMathLibrary::RandomFloatInRange(0.f, 1.f), UKismetMathLibrary::RandomFloatInRange(0.f, 1.f), UKismetMathLibrary::RandomFloatInRange(0.f, 1.f), 1.f);
+
 	if (overlappedActor)
 	{
-		randColor = FLinearColor(UKismetMathLibrary::RandomFloatInRange(0.f, 1.f), UKismetMathLibrary::RandomFloatInRange(0.f, 1.f), UKismetMathLibrary::RandomFloatInRange(0.f, 1.f), 1.f);
 		// Spawn and Attach particle system to object and set color to parameter if niagara component is valid
 		if (colorP)
 		{

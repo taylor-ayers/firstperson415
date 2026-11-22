@@ -1,0 +1,53 @@
+// Fill out your copyright notice in the Description page of Project Settings.
+
+#pragma once
+
+#include "CoreMinimal.h"
+#include "GameFramework/Actor.h"
+#include "ProcPlane.generated.h"
+
+// Class needed to work with procedural tools
+class UProceduralMeshComponent;
+
+UCLASS()
+class FIRSTPERSON415_API AProcPlane : public AActor
+{
+	GENERATED_BODY()
+	
+public:	
+	// Sets default values for this actor's properties
+	AProcPlane();
+
+protected:
+	// Called when the game starts or when spawned
+	virtual void BeginPlay() override;
+
+	virtual void PostActorCreated() override;
+
+	virtual void PostLoad() override;
+
+public:	
+	// Called every frame
+	virtual void Tick(float DeltaTime) override;
+
+	// Properties to be able to add user desired amount of Vertices to blueprint
+	UPROPERTY(EditAnywhere)
+		TArray<FVector> Vertices;
+
+	UPROPERTY(EditAnywhere)
+		TArray<int> Triangles;
+
+	// Creates property for mesh to have UV so materials are usable
+	UPROPERTY(editAnywhere)
+		TArray<FVector2D> UV0;
+
+	UPROPERTY(EditAnywhere)
+		UMaterialInterface* Plane;
+
+	UFUNCTION()
+	void CreateMesh();
+
+private:
+	UProceduralMeshComponent* procMesh;
+
+};
