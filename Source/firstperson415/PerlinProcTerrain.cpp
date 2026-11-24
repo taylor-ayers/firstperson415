@@ -36,6 +36,7 @@ void APerlinProcTerrain::Tick(float DeltaTime)
 }
 
 // Takes a vector location input and alter the terrain within a radius during runtime
+
 void APerlinProcTerrain::AlterMesh(FVector impactPoint)
 {
 	for (int i = 0; i < Vertices.Num(); i++)
@@ -58,7 +59,7 @@ void APerlinProcTerrain::CreateVertices()
 		for (int y = 0; y <= YSize; y++)
 		{
 			float z = FMath::PerlinNoise2D(FVector2D(x * NoiseScale + 0.1, y * NoiseScale + 0.1)) * ZMultiplier;
-			GEngine->AddOnScreenDebugMessage(-1, 999.0f, FColor::Yellow, FString::Printf(TEXT("z %f"), z));
+			//GEngine->AddOnScreenDebugMessage(-1, 999.0f, FColor::Yellow, FString::Printf(TEXT("z %f"), z));
 			Vertices.Add(FVector(x * Scale, y * Scale, z));
 			UV0.Add(FVector2D(x * UVScale, y * UVScale));
 		}
